@@ -65,6 +65,6 @@ export const birthday = {
   final: {
     kicker: 'one last thing, before you go', heading: 'Once again, happy birthday, my beloved.',
     note: 'I hope today feels like being wrapped up in every bit of love you deserve. Thank you for being you, and for letting me love you.',
-    signature: 'With all my love', photoCaption: 'my person, my place, my home',
+    signature: 'love you adii', photoCaption: 'my person, my place, my home',
   },
 };
