@@ -154,7 +154,7 @@ function Chapter({ id, photo, goTo, wishMade, setWishMade, letterOpen, setLetter
           return <span key={index} className={day ? '' : 'muted'}>{day || ''}</span>;
         })}</div>
         <div className="calendar-note">✿ &nbsp; the day the world got a little brighter</div></div>
-      <div className="calendar-aside"><div className="tiny-photo">{photo(1)}</div><span className="script">{birthday.calendar.asideKicker}</span><h2>{birthday.calendar.asideHeading}</h2>
+      <div className="calendar-aside"><div className="tiny-photo">{photo(10)}</div><span className="script">{birthday.calendar.asideKicker}</span><h2>{birthday.calendar.asideHeading}</h2>
         <p>{birthday.calendar.asideNote}</p>
         <button className="text-link" onClick={event => event.currentTarget.nextElementSibling.classList.toggle('visible')}>Tap the heart for a little secret <Heart size={13} /></button>
         <div className="date-secret">{birthday.calendar.secret}</div></div></div></section>;
@@ -163,9 +163,9 @@ function Chapter({ id, photo, goTo, wishMade, setWishMade, letterOpen, setLetter
   if (id === 'scrapbook') return <section className="page scrapbook-page"><div className="section-heading align-left"><span className="script">{birthday.scrapbook.kicker}</span>
     <h1>{birthday.scrapbook.heading}</h1><p>{birthday.scrapbook.note}</p></div><div className="scrap-grid">
     {[0,1,2,3].map((n) => <div className={`polaroid p${n+1} interactive-photo`} key={n}>{photo(n, birthday.photoCaptions[n])}<span>{birthday.polaroidCaptions[n]}</span></div>)}
-    <span className="camera-sticker">📷</span><span className="scrap-heart">♡</span><div className="filmstrip">{[4,5,6,7].map(n => photo(n, birthday.photoCaptions[n]))}</div></div></section>;
+    <span className="camera-sticker">📷</span><span className="scrap-heart">♡</span><div className="filmstrip">{[11,12,13,14].map(n => photo(n, birthday.photoCaptions[n % birthday.photoCaptions.length]))}</div></div></section>;
 
-  if (id === 'about') return <section className="page about-page"><div className="about-photo-wrap"><div className="about-photo">{photo(2, 'Portrait of my favourite person')}</div>
+  if (id === 'about') return <section className="page about-page"><div className="about-photo-wrap"><div className="about-photo">{photo(14, 'Portrait of my favourite person')}</div>
     <span className="photo-caption">my favourite view, always</span><span className="doodle-heart">♡</span><span className="doodle-star">✧</span><div className="tape tape-about" /></div>
     <div className="about-copy"><span className="script">{birthday.about.kicker}</span><h1>{birthday.about.heading}</h1>
       {birthday.about.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}<div className="about-sign">{birthday.about.signature} <span>✿</span></div>
