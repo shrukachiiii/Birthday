@@ -6,7 +6,7 @@ export const birthday = {
   birthdayMonth: 'August',
   birthdayMonthIndex: 7,
   birthdayYear: 2026,
-  photoPaths: Array.from({ length: 15 }, (_, i) => `/assets/photos/memory-${String(i + 1).padStart(2, '0')}${i < 10 ? '.jpg' : '.jpeg'}`),
+  photoPaths: Array.from({ length: 15 }, (_, i) => `${import.meta.env.BASE_URL}assets/photos/memory-${String(i + 1).padStart(2, '0')}${i < 10 ? '.jpg' : '.jpeg'}`),
   photoCaptions: [
     'The way your laugh fills a room', 'Our little ordinary adventures',
     'Every “just one more photo”', 'The quiet moments I keep close',
