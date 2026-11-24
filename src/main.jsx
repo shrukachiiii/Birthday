@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   ArrowLeft, ArrowRight, Eye, EyeOff, Heart,
@@ -24,35 +24,24 @@ function App() {
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState('forward');
   const [melodyOn, setMelodyOn] = useState(false);
+  const melodyRef = useRef(null);
   const [wishMade, setWishMade] = useState(false);
   const [letterOpen, setLetterOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const chapter = chapters[page];
 
-  useEffect(() => {
-    if (!melodyOn) return undefined;
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContext) return undefined;
-    const context = new AudioContext();
-    const notes = [392, 440, 523.25, 440, 349.23, 392, 293.66, 349.23];
-    let step = 0;
-    const play = () => {
-      const oscillator = context.createOscillator();
-      const volume = context.createGain();
-      oscillator.type = 'sine';
-      oscillator.frequency.value = notes[step++ % notes.length];
-      volume.gain.setValueAtTime(0.0001, context.currentTime);
-      volume.gain.exponentialRampToValueAtTime(0.018, context.currentTime + 0.08);
-      volume.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.68);
-      oscillator.connect(volume); volume.connect(context.destination);
-      oscillator.start(); oscillator.stop(context.currentTime + 0.7);
-    };
-    play();
-    const timer = window.setInterval(play, 760);
-    return () => { window.clearInterval(timer); context.close(); };
-  }, [melodyOn]);
-
   useEffect(() => { setWishMade(false); setLetterOpen(false); }, [page]);
+
+  function toggleMelody() {
+    const audio = melodyRef.current;
+    if (!audio) return;
+    if (audio.paused) {
+      audio.play().then(() => setMelodyOn(true)).catch(() => setMelodyOn(false));
+    } else {
+      audio.pause();
+      setMelodyOn(false);
+    }
+  }
 
   function unlock(event) {
     event.preventDefault();
@@ -94,11 +83,12 @@ function App() {
       <nav className="desktop-nav" aria-label="Scrapbook pages">{chapters.map((item, index) =>
         <button key={item.id} onClick={() => goTo(index)} className={page === index ? 'active' : ''}
           title={item.label} aria-label={item.label}>{item.icon}</button>)}</nav>
-      <div className="top-actions"><button className="music" onClick={() => setMelodyOn(value => !value)} aria-pressed={melodyOn}>
+      <div className="top-actions"><button className="music" onClick={toggleMelody} aria-pressed={melodyOn}>
         {melodyOn ? <Pause size={15} /> : <Play size={15} />}<span>{melodyOn ? 'Pause melody' : 'Our melody'}</span></button>
         <button className="mobile-menu" onClick={() => setMenuOpen(value => !value)} aria-label="Toggle page menu">{menuOpen ? <X /> : <Menu />}</button>
       </div>
     </header>
+    <audio ref={melodyRef} src={`${import.meta.env.BASE_URL}assets/audio/our-melody.wav`} loop preload="none" />
     {menuOpen && <nav className="mobile-nav" aria-label="Scrapbook pages">{chapters.map((item, index) =>
       <button key={item.id} onClick={() => goTo(index)}>{item.icon} &nbsp; {item.label}</button>)}</nav>}
     <main className="story"><div className="page-meta"><span>PAGE {String(page + 1).padStart(2, '0')} <b>·</b> {String(chapters.length).padStart(2, '0')}</span>

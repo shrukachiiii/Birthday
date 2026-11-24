@@ -42,12 +42,12 @@ export const birthday = {
   },
   letter: {
     sealed: 'a note, tucked away just for you', openButton: 'Open your letter', kicker: 'for you, with all my heart',
-    heading: 'A birthday message for you.', salutation: 'My love,',
+    heading: 'A birthday message for mine favourite person.', salutation: 'My love,',
     paragraphs: [
       'On your birthday, I keep thinking about how lucky I am that this world brought you into mine. You make the small things brighter, the hard things softer, and the good things even better.',
       'I hope this next trip around the sun brings you the same warmth and joy you give to everyone lucky enough to know you.',
       'Keep being exactly, wonderfully you.',
-    ], signoff: 'Happy birthday, always.', from: 'With all my love',
+    ], signoff: 'Happy birthday, have a great day!', from: 'love from shruu, stay with me forever, my love', signature: 'love you adii', photoCaption: 'my person, my place, my home',
   },
   cake: {
     kicker: 'close your eyes for a second', heading: 'It’s time to make a wish!', note: 'Make it a good one. The universe is listening.',
