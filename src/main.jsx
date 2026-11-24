@@ -137,7 +137,7 @@ function Chapter({ id, photo, goTo, wishMade, setWishMade, letterOpen, setLetter
     <h1>{birthday.home.heading}<br /><i>{birthday.home.headingScript}</i></h1><p>{birthday.home.note}</p>
     <button className="primary" onClick={() => goTo(1)}>{birthday.home.button} <ArrowRight size={16} /></button><div className="signature">{birthday.home.signature} <Heart size={15} /></div></div>
     <div className="hero-art"><div className="sunburst" /><span className="sticker star-sticker">✳</span><span className="sticker tiny-heart">♡</span>
-      <div className="hero-polaroid">{photo(0, 'Birthday scrapbook photo')}<span>{birthday.home.photoCaption}</span></div><span className="sticker little-flower">✿</span>
+      <div className="hero-polaroid">{photo(13, 'Birthday scrapbook photo')}<span>{birthday.home.photoCaption}</span></div><span className="sticker little-flower">✿</span>
       <div className="tape tape-one" /><div className="side-note">one more trip<br />around the sun ☼</div><span className="spark s1">✦</span><span className="spark s2">✧</span></div></section>;
 
   if (id === 'calendar') {
@@ -212,7 +212,7 @@ function Chapter({ id, photo, goTo, wishMade, setWishMade, letterOpen, setLetter
         <p>{birthday.timeline.notes[index]}</p></div></article>)}</div>
       <div className="timeline-bottom"><Heart size={15} /> {birthday.timeline.closing}</div></section>;
 
-  return <section className="page final-page"><div className="final-photo">{photo(0, birthday.final.photoCaption)}<span className="final-photo-label">{birthday.final.photoCaption}</span></div>
+  return <section className="page final-page"><div className="final-photo">{photo(13, birthday.final.photoCaption)}<span className="final-photo-label">{birthday.final.photoCaption}</span></div>
     <div className="final-copy"><span className="script">{birthday.final.kicker}</span><h1>{birthday.final.heading}</h1>
       <p>{birthday.final.note}</p>
       <span className="final-love">{birthday.final.signature} <Heart size={17} /></span><div className="final-sparkles">✦ &nbsp; ✧ &nbsp; ✿</div></div>
