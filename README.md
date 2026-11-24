@@ -1,6 +1,6 @@
 # A Little World for You
 
-A 12-page React birthday scrapbook built with Vite. It includes a password entrance, August 2026 calendar, twelve distinct paper-inspired pages, photo frames and film strips, a sealed letter reveal, a candle-blowing cake, keyboard-friendly navigation, a looping generated melody, and responsive phone layouts.
+A 12-page React birthday scrapbook built with Vite. It includes a password entrance, November 2005 calendar, twelve distinct paper-inspired pages, photo frames and film strips, a sealed letter reveal, a candle-blowing cake, keyboard-friendly navigation, a looping generated melody, and responsive phone layouts.
 
 ## Run locally
 

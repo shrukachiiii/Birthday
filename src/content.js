@@ -1,11 +1,11 @@
 // Personalize the words, password, date, captions, and photo filenames in this file.
 export const birthday = {
-  chapterLabels: ['The beginning', 'August, for you', 'Little moments', 'Hello, you', 'A little letter', 'Make a wish', 'My wishes', 'Ten little things', 'My beloved memories', 'Our moments', 'Our timeline', 'All my love'],
+  chapterLabels: ['The beginning', 'November, for you', 'Little moments', 'Hello, you', 'A little letter', 'Make a wish', 'My wishes', 'Ten little things', 'My beloved memories', 'Our moments', 'Our timeline', 'All my love'],
   password: '2529',
-  birthdayDate: 19,
-  birthdayMonth: 'August',
-  birthdayMonthIndex: 7,
-  birthdayYear: 2026,
+  birthdayDate: 25,
+  birthdayMonth: 'November',
+  birthdayMonthIndex: 10,
+  birthdayYear: 2005,
   photoPaths: Array.from({ length: 15 }, (_, i) => `${import.meta.env.BASE_URL}assets/photos/memory-${String(i + 1).padStart(2, '0')}${i < 10 ? '.jpg' : '.jpeg'}`),
   photoCaptions: [
     'The way your laugh fills a room', 'Our little ordinary adventures',
